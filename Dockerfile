@@ -7,9 +7,6 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update \
   && apt-get -qqy install wget curl ca-certificates tzdata \
      nano wget rsyslog locales software-properties-common --no-install-recommends
 
-RUN DEBIAN_FRONTEND=noninteractive apt-get -qqy install openjdk-7-jre gosu --no-install-recommends \
-  && ln -sf /usr/lib/jvm/java-7-openjdk-amd64/bin/java /usr/bin/
-
 RUN cd /usr/local/bin \
   && curl -sL $(curl -s https://api.github.com/repos/jwilder/dockerize/releases/latest \
     | grep -E 'browser_.*amd64' | cut -d\" -f4) | tar xzv \
