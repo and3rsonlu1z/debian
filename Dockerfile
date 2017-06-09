@@ -5,9 +5,9 @@ RUN echo 'deb http://ftp.debian.org/debian jessie-backports main' >> /etc/apt/so
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update \
   && apt-get -qqy install wget curl ca-certificates tzdata \
-     nano wget rsyslog locales software-properties-common --no-install-recommends
+     nano wget rsyslog locales software-properties-common gosu --no-install-recommends
 
-RUN DEBIAN_FRONTEND=noninteractive apt-get -qqy install openjdk-7-jre gosu --no-install-recommends \
+RUN DEBIAN_FRONTEND=noninteractive apt-get -qqy install openjdk-7-jre --no-install-recommends \
   && ln -sf /usr/lib/jvm/java-7-openjdk-amd64/bin/java /usr/bin/
 
 RUN cd /usr/local/bin \
