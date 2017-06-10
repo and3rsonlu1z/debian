@@ -5,7 +5,7 @@ RUN echo 'deb http://ftp.debian.org/debian jessie-backports main' >> /etc/apt/so
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update \
   && apt-get -qqy install wget curl ca-certificates tzdata \
-     nano wget rsyslog locales software-properties-common --no-install-recommends
+     nano wget rsyslog locales software-properties-common gosu --no-install-recommends
 
 RUN cd /usr/local/bin \
   && curl -sL $(curl -s https://api.github.com/repos/jwilder/dockerize/releases/latest \
